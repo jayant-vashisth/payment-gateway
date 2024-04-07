@@ -1,7 +1,23 @@
+import React from "react";
 
-export const SidebarButton = ({ text }: { text: string }) => {
+interface SidebarButtonProps {
+  text: string;
+  setActive: (text: string) => void; 
+}
+
+export const SidebarButton: React.FC<SidebarButtonProps> = ({
+  text,
+  setActive,
+}) => {
   return (
-    <div className="w-full cursor-pointer bg-[#d7dfdf] px-2 py-2">{text}</div>
+    <div
+      onClick={() => {
+        setActive(text.toLowerCase());
+      }}
+      className="w-full cursor-pointer bg-[#d7dfdf] px-2 py-2"
+    >
+      {text}
+    </div>
   );
 };
 
